@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.54.0" />
-  <link rel="canonical" href="https://cris2123.github.io/categories/">
+  <link rel="canonical" href="https://cris2123.github.io/posts/hello-hugo/">
 
   
 
@@ -32,7 +32,7 @@
 
   
   
-  <title>Categories | My New Hugo Site</title>
+  <title>Hello Hugo | My New Hugo Site</title>
 </head>
 
   <body>
@@ -219,16 +219,300 @@
 </nav>
   </div>
   
+    <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\[', '\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                TeX: {
+                    equationNumbers: { autoNumber: "AMS" },
+                    extensions: ["AMSmath.js", "AMSsymbols.js"]
+                }
+            }
+        });
+
+        MathJax.Hub.Queue(function () {
+            
+            
+            
+            var all = MathJax.Hub.getAllJax();
+            for (var i = 0; i < all.length; i++) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+
+
+</script>
+  
 </header>
       <div class="main-and-footer">
         <div>
           
   <main id="main">
-    <h1>Categories</h1>
-    <ul class="patterns-list">
-      
-      
-    </ul>
+    <h1>Hello Hugo</h1>
+    
+
+<h1 id="primer-post-en-hugo">Primer post en Hugo</h1>
+
+<nav class="toc" aria-labelledby="toc-heading">
+  <h2 id="toc-heading">Table of contents</h2>
+  <ol>
+    <li>
+      <a href="#que-es-hugo">Que es Hugo?</a>
+    </li>
+    <li>
+      <a href="#instalar-hugo">Instalar Hugo</a>
+    </li>
+    <li>
+      <a href="#comandos-en-hugo">Comandos para hugo</a>
+    </li>
+    <li>
+      <a href="#shortcodes-en-hugo">Shortcodes in Hugo</a>
+    </li>
+    <li>
+      <a href="#latex-con-hugo-y-cupper">Latex con Hugo y Cupper</a>
+    </li>
+  </ol>
+</nav>
+
+<h2 id="que-es-hugo">Que es hugo ?</h2>
+
+<p>Hugo es un generador de páginas estáticas el cual se encuentra escrito en Go, con el podemos  generar sitios estáticos escritos en  markdown de una manera rápida y sencilla.</p>
+
+<h2 id="instalar-hugo">Instalar Hugo</h2>
+
+<p>Para instalarlo y configurarlo es mejor seguir la documentación oficial que se encuentra <a href="https://gohugo.io/getting-started/installing/">aquí</a></p>
+
+<p>Para esta instalación se usarón las instrucciones para <em><em>Windows 10</em></em> presentes en el link anterior con la siguiente estructura de carpetas:</p>
+
+<div class="file-tree">
+  <ul>
+<li>C:\Hugo
+
+<ul>
+<li>bin</li>
+<li>sites</li>
+</ul></li>
+</ul>
+
+</div>
+
+
+<p>Una vez instalado y configurado el path como en la documentación se utiliza el siguiente comando para generar el sitio</p>
+
+<pre class="cmd"><code>hugo new site &lt;my_site&gt;</code></pre>
+
+
+<p>Y de alli se generara una nueva carpeta, quedando la estructura de archivos de la siguiente manera:</p>
+
+<div class="file-tree">
+  <ul>
+<li>C:\Hugo
+
+<ul>
+<li>bin</li>
+<li>sites
+
+<ul>
+<li>my_site
+
+<ul>
+<li>content/</li>
+<li>data/</li>
+<li>layouts/</li>
+<li>archetypes/</li>
+<li>resources/</li>
+<li>static/</li>
+<li>themes/</li>
+<li>config.toml
+<br /></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+
+</div>
+
+
+<p>De manera general una vez instalado Hugo en el sistema, podemos crear cualquier carpeta y dentro de ella utilizar los comandos anteriores, no es necesarios, que
+se encuentre en el mismo sitio que la instalación de Hugo.</p>
+
+<aside aria-label="note" class="note">
+  <div>
+    <svg class="sign" aria-hidden="true" viewBox="0 0 41.667306 41.66729" focusable="false">
+      <use xlink:href="#info"></use>
+    </svg>
+    <p>Hugo no viene por defecto con ningún tema definido asi que al momento de configurarse es necesario especificar que tema será el elegido
+Se pueden revisar los temas disponibles en <a href="https://themes.gohugo.io/">el sitio oficial</a></p>
+
+  </div>
+</aside>
+
+
+<p>Para instalar el tema simplemente debemos tomar el tema como un submodulo de nuestro repositorio, para ello primero debemos iniciar nuestro sitio como un repositorio y luego traer el submodulo, para control de versiones en estos momentos se esta usando git.</p>
+
+<p>Para instalar el tema se utiliza:</p>
+
+<pre><code class="language-shell">C:\Users\your_user&gt; git init
+C:\Users\your_user&gt; git submodule add link_to_repo themes/theme_name
+</code></pre>
+
+<p>Todas las configuraciones de hugo se realizan atraves del archivo <em>config.toml</em>, alli se debe especificar el tema a utilizar y algunos otros parámetros del sitio que estamos creando. En este caso lo modificaremos para agregar la plantilla a utilizar. En este caso se agrega al archivo la siguiente línea:</p>
+
+<p><code>theme = &quot;your_theme&quot;</code></p>
+
+<p>Por ultimo correremos el servior que viene con Hugo para el sitio generado:</p>
+
+<pre class="cmd"><code>hugo server -D</code></pre>
+
+
+<h2 id="comandos-para-hugo">Comandos para hugo</h2>
+
+<p>Para crear un nuevo post se usa el comando:</p>
+
+<pre class="cmd"><code>  hugo new /posts/&lt;post_name.md&gt;</code></pre>
+
+
+<h2 id="configuraciones-de-hugo">Configuraciones de Hugo</h2>
+
+<p>En construcciones</p>
+
+<h2 id="shortcodes-en-hugo">Shortcodes en Hugo</h2>
+
+<p>En hugo los shortcodes son snippets de templates que se colocan cuando se estan escribiendo el markdown, estos
+son muy utiles para extender las capacidades del markdown de una manera mucho mas limpia usando el template engine
+por defecto.</p>
+
+<p>Entre algunos shortcodes se tiene</p>
+
+<p><em>cmd</em>:</p>
+
+<pre><code><pre class="cmd"><code>hugo server -D</code></pre>
+
+</code></pre>
+
+<p><em>notas</em></p>
+
+<aside aria-label="note" class="note">
+  <div>
+    <svg class="sign" aria-hidden="true" viewBox="0 0 41.667306 41.66729" focusable="false">
+      <use xlink:href="#info"></use>
+    </svg>
+    <p>Esto es una nota</p>
+
+  </div>
+</aside>
+
+
+<p>Entre otros que se iran agregando a medida que se vayan utilizando</p>
+
+<h2 id="latex-con-hugo-y-cupper">Latex con Hugo y Cupper</h2>
+
+<p>Aqui probaremos si la configuracion de mathjax funciono en cupper</p>
+
+<p>Para instalar mathjax con el template de Hugo debemos modificar la plantilla de cupper. Para ello primero
+  crearemos el archivo <code>mathjax_support.html</code> con lo siguiente:</p>
+
+<pre><code class="language-html">  &lt;script type=&quot;text/javascript&quot; async
+    src=&quot;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;
+    MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        displayMath: [['$$','$$'], ['\[','\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        TeX: { equationNumbers: { autoNumber: &quot;AMS&quot; },
+            extensions: [&quot;AMSmath.js&quot;, &quot;AMSsymbols.js&quot;] }
+    }
+    });
+
+    MathJax.Hub.Queue( function() {
+        // Fix &lt;code&gt; tags after MathJax finishes running. This is a
+        // hack to overcome a shortcoming of Markdown. Discussion at
+        // https://github.com/mojombo/jekyll/issues/199
+        var all = MathJax.Hub.getAllJax();
+        for(var i = 0; i &lt; all.length; i++){
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+
+  &lt;/script&gt;
+
+
+</code></pre>
+
+<p>Este archivo se debera colocar en la ruta del tema de cupper <code>theme/cupper-hugo-theme/layouts/partials</code></p>
+
+<p>Ya con el archivo en su lugar queda es llamar a dicho archivo desde algun elemento de la plantilla que siempre
+  se renderizará, puede ser el footer o el header, para este caso se colocara en el archivo de header.html en la
+  misma carpeta de partials.</p>
+
+<p>Se agregara de la siguiente forma al archivo</p>
+
+<pre><code class="language-html">
+  &lt;header class=&quot;intro-and-nav&quot; role=&quot;banner&quot;&gt;
+      .
+      .
+      .
+      .
+      &lt;!-- header content  --&gt;
+      .
+      .
+
+    {{ if .Params.mathjax }}
+      {{ partial &quot;mathjax_support.html&quot; . }}
+    {{ end }}
+&lt;/header&gt;
+
+</code></pre>
+
+<p>Como se hizo que mathjax fuera renderizado de manera condicional, es decir, se verifica un flag
+  para cargar el archivo, debemos configurar en cada post que se realize el flag de
+  <code>mathjax: true</code> para poder utilizarlos.</p>
+
+<p>Algunos ejemplos se muestran a continuación:</p>
+
+<p><code>$\sqrt{(3x-1)}+(1+x)^2$</code></p>
+
+<p><code>$\sqrt{3}$</code></p>
+
+<p>$$
+    \lim_{ n \to \infty } {\rm Pr}
+    \left (
+        \sqrt{n} \left ( \frac{ \bar{ X_n } - \mu }{ \sigma }
+                \right ) \leq x
+    \right )
+    = \int^x_{ -\infty } \frac{ 1 }{ \sqrt{ 2 \pi } } e^{ -y^2 / 2 }\,{\rm d}y
+  $$</p>
+
+<p>Also inline mode: $ \mathbf{ \hat{ \beta } }
+ = \left ( \mathbf{X}&rsquo; \mathbf{X} \right )^{-1} \mathbf{X}&rsquo; \mathbf{y} $.</p>
+
+<p><code>$S_n = \sum_{i=1}^n X_i$</code></p>
+
+<aside aria-label="note" class="note">
+  <div>
+    <svg class="sign" aria-hidden="true" viewBox="0 0 41.667306 41.66729" focusable="false">
+      <use xlink:href="#info"></use>
+    </svg>
+    <p>En algunos browsers como chrome para windows algunos simbolos no son renderizados correctamente,
+debido a esto pueden existir problemas al renderizar algunas ecuaciones, entre los simbolos
+problemas encontrados actualmente se tienen:</p>
+
+<p><code>$\vec{B}$</code> &ndash;&gt; <code>$\overrightarrow{B}$</code>
+<code>\vec{B}</code> &ndash;&gt; cambiarse por <code>\overrightarrow{B}</code></p>
+
+  </div>
+</aside>
+
+
+<h2 id="deployment-de-hugo-en-github-pages">Deployment de hugo en github pages</h2>
+
   </main>
 
           <footer role="contentinfo">
