@@ -586,53 +586,50 @@ y <remote_url_page> es el repositorio donde github almacena nuestra pagina <code
 <p>Despues de crear el directorio ingresamos al directorio <code>&lt;new_site_name&gt;</code> y ejecutamos el siguiente comando:</p>
 
 <pre class="cmd"><code> 
-  git submodule add &lt;repo_url&gt;
-&lt;pre class=&#34;cmd&#34;&gt;&lt;code&gt; 
-
-donde &amp;lt;repo_url&amp;gt; es el enlace del repositorio remoto en donde esta nuestra pagina, que es el mismo que utilizamos
-en los pasos anteriores. 
-
-Como se vio en la sección de `instalación de Hugo` debemos agregar como submodulo el repositorio del tema, si queremos usar mathjax , agregar como submodulo al fork del tema con :
-
-&amp;lt;pre class=&amp;#34;cmd&amp;#34;&amp;gt;&amp;lt;code&amp;gt; 
-  git submodule add &amp;amp;lt;repo_theme_fork_url&amp;amp;gt;
-&amp;amp;lt;pre class=&amp;amp;#34;cmd&amp;amp;#34;&amp;amp;gt;&amp;amp;lt;code&amp;amp;gt; 
-
-Cuandp ya hemos creado el submodulo dentro del repositorio principal, podemos hacer un commit de nuestros cambios y un push a la branch remota, para ya tener configurado el remoto, si no de igual manera es posible continuar con el siguiente paso, el cual consiste en configurar el archivo `config.toml`  generado por Hugo.
-
-En dicho archivo agregaremos lo siguiente: 
-
-```toml
-
-baseURL = &amp;amp;amp;#34;https://&amp;amp;amp;lt;github_username&amp;amp;amp;gt;.github.io/&amp;amp;amp;#34;
-languageCode = &amp;amp;amp;#34;en-us&amp;amp;amp;#34;
-title = &amp;amp;amp;#34;Your title&amp;amp;amp;#34;
-theme = &amp;amp;amp;#34;your-theme&amp;amp;amp;#34;
-publishDir = &amp;amp;amp;#34;&amp;amp;amp;lt;github_username&amp;amp;amp;gt;.github.io&amp;amp;amp;#34;
-
-```
-
-Lo mas importante de esta configuración es el `baseURL` el cual indicará la página 
-o host en el cual se mostrarán  los archivos de nuestros repos y el parámetro de `publishDir`, el cual le indicará a hugo donde queremos que se guarden los archivos generados al compilar nuestros Markdowns con el comando `hugo`. En este caso lo seleccionamos para que apunte al directorio de nuestro submodulo, por lo cual cada vez que editemos los posts, assets, etc, para nuestro blog y decidamos publicarlos, los mismos se copiaran en el repositiorio de las páginas de github y podrems hacerles commit directamente. 
-
-Ya con esto configurado, crearemos un post con el comando
-
-&amp;amp;amp;lt;pre class=&amp;amp;amp;#34;cmd&amp;amp;amp;#34;&amp;amp;amp;gt;&amp;amp;amp;lt;code&amp;amp;amp;gt;  hugo new /posts/&amp;amp;amp;amp;lt;post_name.md&amp;amp;amp;amp;gt;&amp;amp;amp;lt;/code&amp;amp;amp;gt;&amp;amp;amp;lt;/pre&amp;amp;amp;gt;
+  git submodule add &lt;repo_url&gt;</code></pre>
 
 
-Escribiremos algo en nuestro post y utilizaremos el comando
+<p>donde <repo_url> es el enlace del repositorio remoto en donde esta nuestra pagina, que es el mismo que utilizamos
+en los pasos anteriores.</p>
 
-&amp;amp;amp;lt;pre class=&amp;amp;amp;#34;cmd&amp;amp;amp;#34;&amp;amp;amp;gt;&amp;amp;amp;lt;code&amp;amp;amp;gt;  hugo --buildDrafts&amp;amp;amp;lt;/code&amp;amp;amp;gt;&amp;amp;amp;lt;/pre&amp;amp;amp;gt;
+<p>Como se vio en la sección de <code>instalación de Hugo</code> debemos agregar como submodulo el repositorio del tema, si queremos usar mathjax , agregar como submodulo al fork del tema con :</p>
 
-
-Este último comando generará dentro de nuestro submodulo &amp;amp;amp;lt;github_username&amp;amp;amp;gt;.github.io todos los archivos necesarios para 
-la página estática.
-
-Por último para actualizar nuestro repositorio remoto, entramos a nuestro submodulo &amp;amp;amp;lt;github_user&amp;amp;amp;gt;.github.io y hacemos un git commit y git push de nuestros cambios. De alli, podremos visualizar la data desde nuestra página de github
+<pre class="cmd"><code> 
+  git submodule add &lt;repo_theme_fork_url&gt;</code></pre>
 
 
-Otra cosa importante de destacar es que si a `hugo` no se le especifica el párametro `publishDir`, crea una carpeta llamada `public` en donde se generan los archivos para el deployment. Si no quisieramos cambiar este comportamiento, es posible correr el comando `git submodule add &amp;amp;amp;lt;repo_url&amp;amp;amp;gt; public` de manera que la carpeta de nuestro submodulo se llame `public`, y los archivos generados se guarden alli directamente.&amp;amp;lt;/code&amp;amp;gt;&amp;amp;lt;/pre&amp;amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&lt;/code&gt;&lt;/pre&gt;</code></pre>
+<p>Cuandp ya hemos creado el submodulo dentro del repositorio principal, podemos hacer un commit de nuestros cambios y un push a la branch remota, para ya tener configurado el remoto, si no de igual manera es posible continuar con el siguiente paso, el cual consiste en configurar el archivo <code>config.toml</code>  generado por Hugo.</p>
 
+<p>En dicho archivo agregaremos lo siguiente:</p>
+
+<pre><code class="language-toml">
+baseURL = &quot;https://&lt;github_username&gt;.github.io/&quot;
+languageCode = &quot;en-us&quot;
+title = &quot;Your title&quot;
+theme = &quot;your-theme&quot;
+publishDir = &quot;&lt;github_username&gt;.github.io&quot;
+
+</code></pre>
+
+<p>Lo mas importante de esta configuración es el <code>baseURL</code> el cual indicará la página
+o host en el cual se mostrarán  los archivos de nuestros repos y el parámetro de <code>publishDir</code>, el cual le indicará a hugo donde queremos que se guarden los archivos generados al compilar nuestros Markdowns con el comando <code>hugo</code>. En este caso lo seleccionamos para que apunte al directorio de nuestro submodulo, por lo cual cada vez que editemos los posts, assets, etc, para nuestro blog y decidamos publicarlos, los mismos se copiaran en el repositiorio de las páginas de github y podrems hacerles commit directamente.</p>
+
+<p>Ya con esto configurado, crearemos un post con el comando</p>
+
+<pre class="cmd"><code>  hugo new /posts/&lt;post_name.md&gt;</code></pre>
+
+
+<p>Escribiremos algo en nuestro post y utilizaremos el comando</p>
+
+<pre class="cmd"><code>  hugo --buildDrafts</code></pre>
+
+
+<p>Este último comando generará dentro de nuestro submodulo <github_username>.github.io todos los archivos necesarios para
+la página estática.</p>
+
+<p>Por último para actualizar nuestro repositorio remoto, entramos a nuestro submodulo <github_user>.github.io y hacemos un git commit y git push de nuestros cambios. De alli, podremos visualizar la data desde nuestra página de github</p>
+
+<p>Otra cosa importante de destacar es que si a <code>hugo</code> no se le especifica el párametro <code>publishDir</code>, crea una carpeta llamada <code>public</code> en donde se generan los archivos para el deployment. Si no quisieramos cambiar este comportamiento, es posible correr el comando <code>git submodule add &lt;repo_url&gt; public</code> de manera que la carpeta de nuestro submodulo se llame <code>public</code>, y los archivos generados se guarden alli directamente.</p>
 
   </main>
 
