@@ -17,7 +17,7 @@
       <pubDate>Tue, 21 May 2019 06:36:15 -0400</pubDate>
       
       <guid>https://cris2123.github.io/posts/hello-hugo/</guid>
-      <description>Primer post en Hugo Table of contents   Que es Hugo?   Instalar Hugo   Comandos para hugo   Shortcodes in Hugo   Latex con Hugo y Cupper    Que es hugo ? Hugo es un generador de páginas estáticas el cual se encuentra escrito en Go, con el podemos generar sitios estáticos escritos en markdown de una manera rápida y sencilla.</description>
+      <description>Primer post en Hugo Table of contents   Que es Hugo?   Instalar Hugo   Comandos para hugo   Shortcodes in Hugo   Latex con Hugo y Cupper   Deployment de hugo en github pages    Que es hugo ? Hugo es un generador de páginas estáticas el cual se encuentra escrito en Go, con el podemos generar sitios estáticos escritos en markdown de una manera rápida y sencilla.</description>
     </item>
     
   </channel>
